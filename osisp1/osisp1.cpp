@@ -24,7 +24,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	wc.lpfnWndProc = WindowProc;
 	wc.hInstance = hInstance;
 	wc.lpszClassName = CLASS_NAME;
-	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	RegisterClass(&wc);
 	HWND hwnd = CreateWindowEx(0, CLASS_NAME, L"OSaSP1", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
 		NULL, NULL, hInstance, NULL);
@@ -51,7 +50,7 @@ void bounceSprite() {
 		spritePos.x = REBOUND;
 	}
 	if (spritePos.x + bitmap.bmWidth > windowSize.right) {
-		spritePos.x = windowSize.right - bitmap.bmWidth-REBOUND;
+		spritePos.x = windowSize.right - bitmap.bmWidth - REBOUND;
 	}
 	if (spritePos.y < 0) {
 		spritePos.y = REBOUND;
